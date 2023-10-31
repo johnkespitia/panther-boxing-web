@@ -8,13 +8,13 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY ./code/package.json ./
-COPY ./code/package-lock.json ./
+COPY ./web/package.json ./
+COPY ./web/package-lock.json ./
 RUN npm install
 RUN npm install react-scripts@3.4.1 -g
 
 # add app
-COPY ./code/ ./
+COPY ./web/ ./
 
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "run dev"]
