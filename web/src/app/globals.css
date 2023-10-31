@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-gray-600
+}
+
+.markdown-text{
+  @apply ml-4 mt-4
+}
+
+.markdown-text a{
+  @apply text-blue-500 hover:text-blue-700 hover:shadow
+}
+
+.markdown-text h1 {
+  @apply text-2xl font-bold mb-4;
+}
+.markdown-text h2 {
+  @apply text-xl font-bold mb-4;
+}
+.markdown-text h3 {
+  @apply text-lg font-bold mb-4;
+}
+
+.markdown-text h4 {
+  @apply font-bold mb-4;
+}
+
+.markdown-text p {
+  @apply text-gray-600 mb-2;
+}
+
+.markdown-text ul {
+  @apply list-disc ml-6 mb-4;
+}
+
+.markdown-text li {
+  @apply mb-2;
+}
