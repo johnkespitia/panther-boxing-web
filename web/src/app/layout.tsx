@@ -1,31 +1,43 @@
-import './globals.css'
-import Head from 'next/head';
-import Header from "@/components/header";
-import profileData from "@/data/profileData";
-import Footer from "@/components/footer";
+import "./globals.css";
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+import { FixedPlugin, Layout } from "@/components";
 
-export const metadata = {
-  title: 'John Espitia - Software and Tech Solutions',
-  description: 'Software developer with 13 years of experience using PHP, Javascript, Golang, and more. I had worked on many projects for companies to improve their processes, and I had occupied important positions in these companies as Software Developer, Developer Team Leader, and TI Director.',
-  keywords: "John Espitia, johnkespitia, golang, php, react, software, software development, Fullstack, developer, backend, frontend"
-}
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "NextJS Tailwind App Presentation Page",
+  description:
+    "We are thrilled to offer you a Free App Presentation Template, a beautifully designed and user-friendly Tailwind CSS and Material Tailwind theme crafted specifically for app developers like you. The free app presentation template includes key features such as hero, features, FAQ, stats, and testimonial sections.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
-      <body>
-      <Header name={profileData.name}
-              profilePicture={profileData.profilePicture}
-              tagline={profileData.tagline}
-              altProfilePicture={profileData.profilePicture} email={profileData.email} phone={profileData.phone} socialMediaLinks={profileData.socialMediaLinks} />
-      {children}
-      <Footer />
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+      </head>
+      <body className={roboto.className}>
+        <Layout>
+          {children}
+          <FixedPlugin />
+        </Layout>
       </body>
     </html>
-  )
+  );
 }
